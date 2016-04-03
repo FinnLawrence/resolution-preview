@@ -1,0 +1,309 @@
+---
+---
+
+$l-scale: 0.25;
+$l-scale-retina: 0.2;
+$m-scale: 0.2;
+$m-scale-retina: 0.16;
+$s-scale: 0.15;
+$s-scale-retina: 0.12;
+$xs-scale: 0.10;
+$xs-scale-retina: 0.08;
+
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+nav {
+    background-color: orangered;
+}
+
+#devices {
+    position: fixed;
+    bottom: 48px;
+    width: 100%;
+    text-align: center;
+
+    img {
+        width: 100%;
+        display: block;
+    }
+
+    .wrapper {
+        font-size: 0px;
+        margin: 0 auto;
+
+        .device {
+            bottom: 0px;
+            position: relative;
+            display: inline-block;
+
+            iframe {
+                border: 0px;
+                position: absolute;
+                @include transform(scale($l-scale));
+                -ms-transform-origin: 0 0;
+                -moz-transform-origin: 0 0;
+                -o-transform-origin: 0 0;
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+                overflow: hidden;
+            }
+
+            iframe::-webkit-scrollbar {  
+                display: none;
+            }
+
+        }
+
+        .device.retina {
+            iframe {
+                @include transform(scale($l-scale-retina));
+            }
+        }
+
+        .imac {
+            width: 712px;
+            left: 50px;
+            z-index: 5;
+            bottom: 4px;
+
+            iframe {
+                top: 5.71%;
+                left: 5.06%;
+                width: 2560px;
+                height: 1440px;
+                z-index: 6;
+            }
+        }
+
+        .macbook {
+            left: -100px;
+            bottom: 0px;
+            width: 467px;
+            z-index: 7;
+
+            iframe {
+                top: 4.51%;
+                left: 11.78%;
+                width: 1440px;
+                height: 900px;
+                z-index: 8;
+            }
+        }
+
+        .ipad.portrait {
+            left: -60px;
+            width: 190px;
+            z-index: 7;
+            bottom: 2px;
+
+            iframe {
+                top: 8%;
+                left: 10%;
+                width: 768px;
+                height: 1024px;
+                z-index: 8;
+            }
+        }
+
+        .ipad.landscape {
+            left: -70px;
+            width: 248px;
+            z-index: 9;
+
+            iframe {
+                top: 9.9%;
+                left: 9.3%;
+                width: 1024px;
+                height: 768px;
+                z-index: 10;
+            }
+        }
+        
+        .iphone {
+            position: absolute;
+            bottom: -5px;
+        }
+        
+        .iphone.six-plus {
+            left: 40px;
+            width: 95px;
+            z-index: 9;
+            
+            iframe {
+                top: 11.5%;
+                left: 6.75%;
+                width: 414px;
+                height: 736px;
+                z-index: 10;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1650px) {
+    #devices {
+
+        .wrapper {
+
+            .device {
+
+                iframe {
+                    @include transform(scale($m-scale));
+                }
+            }
+
+            .device.retina {
+                iframe {
+                    @include transform(scale($m-scale-retina));
+                }
+            }
+
+            .imac {
+                width: 570px;
+            }
+
+            .macbook {
+                width: 374px;
+                left: -80px;
+            }
+
+            .ipad.portrait {
+                width: 152px;
+                left: -50px
+            }
+
+            .ipad.landscape {
+                width: 198px;
+                left: -55px;
+            }
+            
+            .iphone.six-plus {
+                width: 76px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1320px) {
+    #devices {
+
+        .wrapper {
+
+            .device {
+
+                iframe {
+                    @include transform(scale($s-scale));
+                }
+            }
+
+            .device.retina {
+                iframe {
+                    @include transform(scale($s-scale-retina));
+                }
+            }
+
+            .imac {
+                width: 428px;
+            }
+
+            .macbook {
+                width: 281px;
+                left: -60px
+            }
+
+            .ipad.portrait {
+                width: 114px;
+                left: -40px
+            }
+
+            .ipad.landscape {
+                width: 149px;
+                left: -45px
+            }
+            
+            .iphone.six-plus {
+                width: 57px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #devices {
+
+        .wrapper {
+
+            .device {
+
+                iframe {
+                    @include transform(scale($xs-scale));
+                }
+            }
+
+            .device.retina {
+                iframe {
+                    @include transform(scale($xs-scale-retina));
+                }
+            }
+
+            .imac {
+                width: 285px;
+            }
+
+            .macbook {
+                width: 187px;
+                left: -30px;
+            }
+
+            .ipad.portrait {
+                width: 76px;
+                left: -20px;
+            }
+
+            .ipad.landscape {
+                width: 99px;
+                left: -23px;
+            }
+            
+            .iphone.six-plus {
+                width: 38px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    #devices .wrapper {
+        .macbook {
+            left: -20px;
+        }
+        
+        .ipad {
+            display: none;
+        }
+    }
+}
+
+#table-top {
+    width: 100%;
+    height: 10px;
+    z-index: -1;
+    position: fixed;
+    bottom: 46px;
+    background-color: orangered;
+}
+
+#table {
+    width: 100%;
+    height: 46px;
+    z-index: -1;
+    position: fixed;
+    bottom: 0px;
+    background-image: url(../img/background.png);
+}

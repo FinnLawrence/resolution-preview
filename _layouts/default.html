@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include imports.html %}
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <form id="searchbar">
+                        <div class="input-field">
+                            <input id="search" type="search" required value="{{ site.search-url }}">
+                            <label for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </header>
+        <main>
+            {{ content }}
+        </main>
+        {% include scripts.html %}
+    </body>
+
+</html>
