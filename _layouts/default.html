@@ -2,6 +2,14 @@
 <html>
     <head>
         {% include imports.html %}
+        <script>
+            function backgroundLoaded(id) {
+                var url = "url('" + document.getElementById(id).src + "')";
+                var parent = document.getElementById(id).parentNode;
+                parent.style.backgroundImage = url;
+                parent.style.opacity = "1";
+            }
+        </script>
     </head>
 
     <body>
