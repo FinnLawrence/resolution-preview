@@ -41,7 +41,8 @@ function parseParameters() {
 function setParameters(pageURL) {
     var domain = url('hostname', pageURL);
     var path = url('path', pageURL);
-    pageURL = url('hostname', window.location.href) + "?url=" + domain + path;
+    pageURL = "http://" + url('hostname', window.location.href) + "?url=" + domain + path;
+    console.log(pageURL);
     window.history.pushState(null, null, pageURL);
 }
 
