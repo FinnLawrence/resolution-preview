@@ -13,6 +13,34 @@
                 parent.style.backgroundImage = url;
                 parent.style.opacity = "1";
             }
+            
+            function setScale() {
+                var mobileImacWidth = .65;
+                var mobileModifier = mobileImacWidth * 0.895;
+                var mobileIphoneWidth =.08;
+                var mobileRetinaModifier = mobileIphoneWidth * 5.419;
+                var windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+                var scaleWidth = {{ site.scale-width }};
+                var scale = windowWidth / scaleWidth;
+            
+                var style = document.createElement('style');
+                // style.setAttribute("media", "screen")
+                // style.setAttribute("media", "only screen and (max-width : 1024px)")
+                // WebKit hack :(
+                style.appendChild(document.createTextNode(""));
+                
+                // Add the <style> element to the page
+                document.head.appendChild(style);
+                var sheet = style.sheet;
+                sheet.insertRule(".device iframe { transform: scale(" + (scale * mobileModifier) + ")}", 0);
+                sheet.insertRule(".device.retina iframe { transform: scale(" + (scale * mobileRetinaModifier) + ")}", 0);
+                
+                console.log(windowWidth);
+                console.log(scaleWidth);
+                console.log(scale);
+            }
+            
+            setScale();
         </script>
     </head>
 

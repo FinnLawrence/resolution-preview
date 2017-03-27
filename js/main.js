@@ -28,6 +28,10 @@ $(document).ready(function() {
     parseParameters();
 });
 
+$(window).resize(function() {
+    setScale();
+});
+
 function parseParameters() {
     var pageURL = window.location.href;
     var site = url('?url', pageURL);
@@ -35,14 +39,23 @@ function parseParameters() {
     if(site) {
         $('#search').val(site);
         $('#searchbar').submit();
+    } else {
+        
     }
 }
 
 function setParameters(pageURL) {
     var domain = url('hostname', pageURL);
     var path = url('path', pageURL);
-    pageURL = "http://" + url('hostname', window.location.href) + "?url=" + domain + path;
-    console.log(pageURL);
+    
+    var port = url('port', window.location.href);
+    
+    if (port) {
+        pageURL = "http://" + url('hostname', window.location.href) + ":" + port + "/?url=" + domain + path;
+    } else {
+        pageURL = "http://" + url('hostname', window.location.href) + "?url=" + domain + path;
+    }
+    
     window.history.pushState(null, null, pageURL);
 }
 

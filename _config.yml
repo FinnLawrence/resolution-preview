@@ -5,5 +5,5 @@ description:
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
-search-url: 'http://www.apple.com'
-
+search-url: 'http://www.materializecss.com'
+scale-width: 2560
