@@ -2,6 +2,8 @@
 ---
 
 $(document).ready(function() {
+    setScale();
+    
     $('input').focus(function() { $(this).select(); } );
     
     $('#searchbar').submit(function(event) {

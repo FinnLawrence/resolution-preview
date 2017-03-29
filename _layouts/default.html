@@ -15,13 +15,38 @@
             }
             
             function setScale() {
-                var mobileImacWidth = .65;
-                var mobileModifier = mobileImacWidth * 0.895;
-                var mobileIphoneWidth =.08;
-                var mobileRetinaModifier = mobileIphoneWidth * 5.419;
+                
                 var windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+                var windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+                
+                var aspect = windowWidth / windowHeight;
+                
+                console.log(aspect);
+                
+                var devicesElement = document.getElementById('devices');
+                
+                if (aspect > 1.3) {
+                    // Page is landscape
+                    devicesElement.className = "landscape";
+                    var imacWidth = .{{ site.landscape-imac-width }};
+                    var iphoneWidth =.{{ site.landscape-iphone-width }};
+                } else {
+                    // Page is portrait (default)
+                    devicesElement.className = "";
+                    var imacWidth = .{{ site.portrait-imac-width }};
+                    var iphoneWidth =.{{ site.portrait-iphone-width }};
+                }
+                
+                console.log("iPhone width: " + iphoneWidth);
+                
                 var scaleWidth = {{ site.scale-width }};
                 var scale = windowWidth / scaleWidth;
+                
+                var scaleModifier = imacWidth * 0.895;
+                
+                var scaleModifierRetina = iphoneWidth * 5.419;
+            
+                console.log("Scale modifier: " + scaleModifierRetina);
             
                 var style = document.createElement('style');
                 // style.setAttribute("media", "screen")
@@ -32,15 +57,9 @@
                 // Add the <style> element to the page
                 document.head.appendChild(style);
                 var sheet = style.sheet;
-                sheet.insertRule(".device iframe { transform: scale(" + (scale * mobileModifier) + ")}", 0);
-                sheet.insertRule(".device.retina iframe { transform: scale(" + (scale * mobileRetinaModifier) + ")}", 0);
-                
-                console.log(windowWidth);
-                console.log(scaleWidth);
-                console.log(scale);
+                sheet.insertRule(".device iframe { transform: scale(" + (scale * scaleModifier) + ")}", 0);
+                sheet.insertRule(".device.retina iframe { transform: scale(" + (scale * scaleModifierRetina) + ")}", 0);
             }
-            
-            setScale();
         </script>
     </head>
 
