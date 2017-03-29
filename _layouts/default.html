@@ -37,16 +37,16 @@
                     var iphoneWidth =.{{ site.portrait-iphone-width }};
                 }
                 
-                console.log("iPhone width: " + iphoneWidth);
-                
                 var scaleWidth = {{ site.scale-width }};
+                // Account for 1920px wrapper
+                if (windowWidth > 1920) {
+                    windowWidth = 1920;
+                }
                 var scale = windowWidth / scaleWidth;
                 
                 var scaleModifier = imacWidth * 0.895;
                 
                 var scaleModifierRetina = iphoneWidth * 5.419;
-            
-                console.log("Scale modifier: " + scaleModifierRetina);
             
                 var style = document.createElement('style');
                 // style.setAttribute("media", "screen")
