@@ -78,9 +78,11 @@ iframe {
     }
 
     .wrapper {
+        position: relative;
         margin: 0 auto;
         overflow: hidden;
         max-width: 1920px;
+        @include calc(height, '100vh - 56px - ' $table-height);
 
         .device {
             bottom: 0px;
@@ -223,6 +225,8 @@ iframe {
 
 #devices.landscape {
     .wrapper {
+        @include calc(height, '100vh - 64px - ' $table-height);
+        
         .imac {
             width: {{ site.landscape-imac-width }}%;
             left: 7.5%;
