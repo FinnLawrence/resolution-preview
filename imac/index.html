@@ -4,8 +4,17 @@ title: 'Check My Tech - iMac'
 description: 'A free tool to preview your website on multiple screen sizes - simultaneously! Get a quick picture of your site on many devices at once.'
 ---
 <section id="devices">
-    <div class="wrapper imac-wrapper">
-        <div class="imac device tooltipped" data-position="top" data-delay="50" data-tooltip="27&quot; iMac - 2560 x 1440"><img src="/img/imac.png"><iframe src="{{ site.search-url }}"></iframe></div>
+    <div class="wrapper flex-wrapper">
+        <div class="device device-imac tooltipped" data-position="top" data-delay="50" data-tooltip="27&quot; iMac - 2560 x 1440">
+            <div class="device-wrapper">
+                <div class="bezel bezel-imac">
+                    <div class="iframe-wrapper" data-width="2560" data-height="1440">
+                        <iframe src="{{ site.search-url }}"></iframe>
+                    </div>
+                </div>
+                <img src="/img/imac.png">
+            </div>
+        </div>
     </div>
 </section>
 <section id="table-top"></section>

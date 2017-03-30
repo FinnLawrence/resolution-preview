@@ -8,7 +8,9 @@ description: 'A free tool to preview your website on multiple screen sizes - sim
         <div class="device device-imac tooltipped" data-position="top" data-delay="50" data-tooltip="27&quot; iMac - 2560 x 1440">
             <div class="device-wrapper">
                 <div class="bezel bezel-imac">
-                    <div class="iframe-wrapper" data-width="2560" data-height="1440"><iframe src="{{ site.search-url }}"></iframe></div>
+                    <div class="iframe-wrapper" data-width="2560" data-height="1440">
+                        <iframe src="{{ site.search-url }}"></iframe>
+                    </div>
                 </div>
                 <img src="/img/imac.png">
             </div>
@@ -17,7 +19,9 @@ description: 'A free tool to preview your website on multiple screen sizes - sim
         <div class="device device-iphone six-plus retina tooltipped" data-position="top" data-delay="50" data-tooltip="iPhone 6 Plus - 414 x 736">
             <div class="device-wrapper">
                 <div class="bezel bezel-iphone-six-plus">
-                    <div class="iframe-wrapper" data-width="414" data-height="736"><iframe src="{{ site.search-url }}"></iframe></div>
+                    <div class="iframe-wrapper" data-width="414" data-height="736">
+                        <iframe src="{{ site.search-url }}"></iframe>
+                    </div>
                 </div>
                 <img src="/img/iphone-6-plus-portrait.png">
             </div>
@@ -34,10 +38,27 @@ description: 'A free tool to preview your website on multiple screen sizes - sim
             </div>
             <div class="btn-wrapper"><a href="/macbook" class="btn btn-device">Expand</a></div>
         </div>
-        <!--
-        <div class="ipad portrait device retina tooltipped" data-position="top" data-delay="50" data-tooltip="9.7&quot; iPad Air - 768 x 1024" ><img src="img/ipad-black-portrait.png"><iframe src="{{ site.search-url }}"></iframe><div class="btn-wrapper"><a href="/ipad" class="btn btn-device">Expand</a></div></div>
-        <div class="ipad landscape device retina tooltipped" data-position="top" data-delay="50" data-tooltip="9.7&quot; iPad Air - 1024 x 768"><img src="img/ipad-white-landscape.png"><iframe src="{{ site.search-url }}"></iframe><div class="btn-wrapper"><a href="/ipad" class="btn btn-device">Expand</a></div></div>-->
-
+        <div class="device device-ipad portrait retina tooltipped" data-position="top" data-delay="50" data-tooltip="9.7&quot; iPad Air - 768 x 1024" >
+            <div class="device-wrapper">
+                <div class="bezel bezel-ipad">
+                    <div class="iframe-wrapper" data-width="768" data-height="1024">
+                        <iframe src="{{ site.search-url }}"></iframe>
+                    </div>
+                </div>
+                <img src="/img/ipad-black-portrait.png">
+            </div>
+            <div class="btn-wrapper"><a href="/ipad" class="btn btn-device">Expand</a></div></div>
+        <div class="device device-ipad landscape retina tooltipped" data-position="top" data-delay="50" data-tooltip="9.7&quot; iPad Air - 1024 x 768">
+            <div class="device-wrapper">
+                <div class="bezel bezel-ipad">
+                    <div class="iframe-wrapper" data-width="1024" data-height="768">
+                        <iframe src="{{ site.search-url }}"></iframe>
+                    </div>
+                </div>
+                <img src="img/ipad-white-landscape.png">
+            </div>
+            <div class="btn-wrapper"><a href="/ipad" class="btn btn-device">Expand</a></div>
+        </div>
     </div>
 </section>
 <section id="table-top"></section>
