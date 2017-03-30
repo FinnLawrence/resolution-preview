@@ -66,6 +66,14 @@ iframe {
     background-color: white;
 }
 
+.btn-device {
+    background-color: orangered;
+}
+
+.btn-device:hover, .btn-device:active {
+    background-color: #ff5611;
+}
+
 #devices {
     position: fixed;
     bottom: $table-height;
@@ -132,14 +140,6 @@ iframe {
                 max-height: 0px;
                 height: $table-height;
                 @include transition(all 0.3s);
-
-                .btn-device {
-                    background-color: orangered;
-                }
-
-                .btn-device:hover, .btn-device:active {
-                    background-color: #ff5611;
-                }
             }
 
         }
@@ -300,4 +300,9 @@ iframe {
     position: fixed;
     bottom: 0px;
     background-image: url(../img/background.png);
+    
+    .btn {
+        margin-left: 5vw;
+        margin-top: 10px;
+    }
 }
