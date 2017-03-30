@@ -6,14 +6,3 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
 search-url: 'http://www.materializecss.com'
-scale-width: 2560
-
-# The base sizing for non-retina devices in portrait
-portrait-imac-width: '65'
-# The base sizing for retina devices in portrait
-portrait-iphone-width: '08'
-
-# The base sizing for non-retina devices in landscape
-landscape-imac-width: '40'
-# The base sizing for retina devices in landscape
-landscape-iphone-width: '05'

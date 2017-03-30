@@ -80,7 +80,6 @@ iframe {
     .wrapper {
         position: relative;
         margin: 0 auto;
-        overflow: hidden;
         max-width: 1920px;
         @include calc(height, '100vh - 56px - ' $table-height);
 
@@ -90,19 +89,34 @@ iframe {
             position: absolute;
             display: inline-block;
 
-            iframe {
-                border: 0px;
-                position: absolute;
-                -ms-transform-origin: 0 0;
-                -moz-transform-origin: 0 0;
-                -o-transform-origin: 0 0;
-                -webkit-transform-origin: 0 0;
-                transform-origin: 0 0;
-                overflow: hidden;
-            }
+            .device-wrapper {
+                position: relative;
 
-            iframe::-webkit-scrollbar {  
-                display: none;
+                .bezel {
+                    position: absolute;
+                    box-sizing: border-box;
+                    top: 0px;
+                    left: 0px;
+                    right: 0px;
+                    bottom: 0px;
+
+                    .iframe-wrapper {
+
+                        iframe {
+                            border: 0px;
+                            -ms-transform-origin: 0 0;
+                            -moz-transform-origin: 0 0;
+                            -o-transform-origin: 0 0;
+                            -webkit-transform-origin: 0 0;
+                            transform-origin: 0 0;
+                            overflow: hidden;
+                        }
+
+                        iframe::-webkit-scrollbar {  
+                            display: none;
+                        }
+                    }
+                }
             }
 
             .btn-wrapper {
@@ -116,13 +130,13 @@ iframe {
                 overflow-x: visible;
                 padding: 0px;
                 max-height: 0px;
-                height: 56px;
+                height: $table-height;
                 @include transition(all 0.3s);
-                
+
                 .btn-device {
                     background-color: orangered;
                 }
-                
+
                 .btn-device:hover, .btn-device:active {
                     background-color: #ff5611;
                 }
@@ -132,40 +146,44 @@ iframe {
 
         .device:hover {
             .btn-wrapper {
-                max-height: 56px;
+                max-height: $table-height;
                 padding: 10px 0px 30px 0px;
             }
         }
 
-        .imac {
-            width: {{ site.portrait-imac-width }}%;
+        .device-imac {
+            width: 65%;
             bottom: 0px;
             left: 5%;
             padding-bottom: 4px;
             z-index: 5;
 
-            iframe {
-                top: 5.71%;
-                left: 5.06%;
-                width: 2560px;
-                height: 1440px;
-                z-index: 6;
+            .bezel-imac {
+                padding: 4.6% 5.06% 0 5.06%;
+
+                iframe {
+                    width: 2560px;
+                    height: 1440px;
+                    z-index: 6;
+                }
             }
         }
 
-        .macbook {
-            @include calc(width, '{{ site.portrait-imac-width }}% * 0.662');
+        .device-macbook {
+            @include calc(width, '65% * 0.662');
             bottom: 0px;
             right: 5%;
             padding-bottom: 2px;
             z-index: 7;
 
-            iframe {
-                top: 4.51%;
-                left: 11.78%;
-                width: 1440px;
-                height: 900px;
-                z-index: 8;
+            .bezel-macbook {
+                padding: 2.8% 11.2% 0 11.78%;;
+
+                iframe {
+                    width: 1440px;
+                    height: 900px;
+                    z-index: 8;
+                }
             }
         }
 
@@ -174,7 +192,7 @@ iframe {
         }
 
         .ipad.portrait {
-            @include calc(width, '{{ site.landscape-iphone-width }}% * 2.02');
+            @include calc(width, '5% * 2.02');
             bottom: 0px;
             right: 20%;
             padding-bottom: 4px;
@@ -190,7 +208,7 @@ iframe {
         }
 
         .ipad.landscape {
-            @include calc(width, '{{ site.landscape-iphone-width }}% * 2.63');
+            @include calc(width, '5% * 2.63');
             bottom: 0px;
             right: 7.5%;
             padding-bottom: 2px;
@@ -205,19 +223,21 @@ iframe {
             }
         }
 
-        .iphone.six-plus {
-            width: {{ site.portrait-iphone-width }}%;
+        .device-iphone.six-plus {
+            width: 8%;
             bottom: 0px;
             left: 12.5%;
             padding-bottom: 2px;
             z-index: 9;
 
-            iframe {
-                top: 11.5%;
-                left: 6.75%;
-                width: 414px;
-                height: 736px;
-                z-index: 10;
+            .bezel-iphone-six-plus {
+                padding: 23.5% 6.75% 0 6.75%;
+
+                iframe {
+                    width: 414px;
+                    height: 736px;
+                    z-index: 10;
+                }
             }
         }
     }
@@ -226,24 +246,24 @@ iframe {
 #devices.landscape {
     .wrapper {
         @include calc(height, '100vh - 64px - ' $table-height);
-        
-        .imac {
-            width: {{ site.landscape-imac-width }}%;
+
+        .device-imac {
+            width: 40%;
             left: 7.5%;
         }
-        
-        .macbook {
-            @include calc(width, '{{ site.landscape-imac-width }}% * 0.662');
+
+        .device-macbook {
+            @include calc(width, '40% * 0.662');
             right: auto;
             left: 40%;
         }
-        
-        .iphone.six-plus {
-            width: {{ site.landscape-iphone-width }}%;
+
+        .device-iphone.six-plus {
+            width: 5%;
             left: 10%;
         }
-        
-        .ipad {
+
+        .device-ipad {
             display: block;
         }
     }

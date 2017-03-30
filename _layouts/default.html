@@ -13,53 +13,6 @@
                 parent.style.backgroundImage = url;
                 parent.style.opacity = "1";
             }
-            
-            function setScale() {
-                
-                var windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-                var windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-                
-                var aspect = windowWidth / windowHeight;
-                
-                console.log(aspect);
-                
-                var devicesElement = document.getElementById('devices');
-                
-                if (aspect > 1.3) {
-                    // Page is landscape
-                    devicesElement.className = "landscape";
-                    var imacWidth = .{{ site.landscape-imac-width }};
-                    var iphoneWidth =.{{ site.landscape-iphone-width }};
-                } else {
-                    // Page is portrait (default)
-                    devicesElement.className = "";
-                    var imacWidth = .{{ site.portrait-imac-width }};
-                    var iphoneWidth =.{{ site.portrait-iphone-width }};
-                }
-                
-                var scaleWidth = {{ site.scale-width }};
-                // Account for 1920px wrapper
-                if (windowWidth > 1920) {
-                    windowWidth = 1920;
-                }
-                var scale = windowWidth / scaleWidth;
-                
-                var scaleModifier = imacWidth * 0.895;
-                
-                var scaleModifierRetina = iphoneWidth * 5.419;
-            
-                var style = document.createElement('style');
-                // style.setAttribute("media", "screen")
-                // style.setAttribute("media", "only screen and (max-width : 1024px)")
-                // WebKit hack :(
-                style.appendChild(document.createTextNode(""));
-                
-                // Add the <style> element to the page
-                document.head.appendChild(style);
-                var sheet = style.sheet;
-                sheet.insertRule(".device iframe { transform: scale(" + (scale * scaleModifier) + ")}", 0);
-                sheet.insertRule(".device.retina iframe { transform: scale(" + (scale * scaleModifierRetina) + ")}", 0);
-            }
         </script>
     </head>
 

@@ -2,7 +2,8 @@
 ---
 
 $(document).ready(function() {
-    setScale();
+    setAspect();
+    sizeIframes();
     
     $('input').focus(function() { $(this).select(); } );
     
@@ -31,8 +32,34 @@ $(document).ready(function() {
 });
 
 $(window).resize(function() {
-    setScale();
+    setAspect();
+    sizeIframes();
 });
+
+function setAspect() {
+    var windowWidth = $(window).width();
+    var windowHeight = $(window).height();
+    var aspectRatio = windowWidth / windowHeight;
+    
+    if (aspectRatio > 1.3) {
+        $('#devices').addClass("landscape");
+    } else {
+        $('#devices').removeClass("landscape");
+    }
+}
+
+function sizeIframes() {
+    $('.iframe-wrapper').each(function() {
+        var iframeWrapper = $(this);
+        var iframeWrapperWidth = iframeWrapper.width();
+        var iframeWidth = iframeWrapper.data('width');
+        
+        var scaleFactor = iframeWrapperWidth / iframeWidth;
+        
+        var iframe = iframeWrapper.children('iframe');
+        iframe.css('transform', 'scale(' + scaleFactor + ')');
+    });
+}
 
 function parseParameters() {
     var pageURL = window.location.href;
