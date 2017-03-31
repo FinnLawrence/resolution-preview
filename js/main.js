@@ -27,6 +27,19 @@ $(document).ready(function() {
             $(this).attr("src", url);
         });
     });
+    
+    $('.btn-device').click(function() {
+        var site = getParameters();
+        
+        if (site) {
+            var button = $(this);
+            var href = button.attr('href');
+            
+            href = href + "?url=" + site;
+            
+            button.attr('href', href);
+        }
+    });
 
     parseParameters();
 });
@@ -61,31 +74,42 @@ function sizeIframes() {
     });
 }
 
-function parseParameters() {
+function getParameters() {
     var pageURL = window.location.href;
     var site = url('?url', pageURL);
+    return site;
+}
+
+function parseParameters() {
+    var site = getParameters();
     
     if(site) {
         $('#search').val(site);
         $('#searchbar').submit();
-    } else {
-        
     }
 }
 
 function setParameters(pageURL) {
-    var domain = url('hostname', pageURL);
-    var path = url('path', pageURL);
+    var targetDomain = url('hostname', pageURL);
+    var targetPath = url('path', pageURL);
     
+    var hostname = url('hostname', window.location.href);
     var port = url('port', window.location.href);
+    var path = url('path', window.location.href);
     
-    if (port) {
-        pageURL = "http://" + url('hostname', window.location.href) + ":" + port + "/?url=" + domain + path;
-    } else {
-        pageURL = "http://" + url('hostname', window.location.href) + "?url=" + domain + path;
+    var newPageUrl = "http://" + hostname;
+    
+    if(port) {
+        newPageUrl += ":" + port;
     }
     
-    window.history.pushState(null, null, pageURL);
+    if (path) {
+        newPageUrl += path + "/";
+    }
+    
+    newPageUrl += "?url=" + targetDomain + targetPath;
+    
+    window.history.pushState(null, null, newPageUrl);
 }
 
 function isValidURL(url) {

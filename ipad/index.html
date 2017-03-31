@@ -1,0 +1,38 @@
+---
+layout: default
+title: 'Check My Tech - iPad'
+description: 'A free tool to preview your website on multiple screen sizes - simultaneously! Get a quick picture of your site on many devices at once.'
+---
+<section id="devices">
+    <div class="wrapper flex-wrapper">
+        <div class="multi-wrapper multi-wrapper-ipad">
+            <div class="device device-ipad portrait retina tooltipped" data-position="top" data-delay="50" data-tooltip="9.7&quot; iPad Air - 768 x 1024" >
+                <div class="device-wrapper">
+                    <div class="bezel bezel-ipad">
+                        <div class="iframe-wrapper" data-width="768" data-height="1024">
+                            <iframe src="{{ site.search-url }}"></iframe>
+                        </div>
+                    </div>
+                    <img src="/img/ipad-black-portrait.png">
+                </div>
+            </div>
+            <div class="device device-ipad landscape retina tooltipped" data-position="top" data-delay="50" data-tooltip="9.7&quot; iPad Air - 1024 x 768">
+                <div class="device-wrapper">
+                    <div class="bezel bezel-ipad">
+                        <div class="iframe-wrapper" data-width="1024" data-height="768">
+                            <iframe src="{{ site.search-url }}"></iframe>
+                        </div>
+                    </div>
+                    <img src="/img/ipad-white-landscape.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="table-top"></section>
+<section id="table">
+    <a href="/" class="btn btn-device"><i class="material-icons left">keyboard_arrow_left</i>Back</a>
+</section>
+<div id="background">
+    <img id="background-image" src="/img/ambient.jpg" alt="background" onload="backgroundLoaded(this.id)"/>
+</div>

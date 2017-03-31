@@ -1,0 +1,28 @@
+---
+layout: default
+title: 'Check My Tech - iPad'
+description: 'A free tool to preview your website on multiple screen sizes - simultaneously! Get a quick picture of your site on many devices at once.'
+---
+<section id="devices">
+    <div class="wrapper flex-wrapper">
+        <div class="multi-wrapper multi-wrapper-iphone">
+            <div class="device device-iphone six-plus retina tooltipped" data-position="top" data-delay="50" data-tooltip="iPhone 6 Plus - 414 x 736">
+                <div class="device-wrapper">
+                    <div class="bezel bezel-iphone-six-plus">
+                        <div class="iframe-wrapper" data-width="414" data-height="736">
+                            <iframe src="{{ site.search-url }}"></iframe>
+                        </div>
+                    </div>
+                    <img src="/img/iphone-6-plus-portrait.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="table-top"></section>
+<section id="table">
+    <a href="/" class="btn btn-device"><i class="material-icons left">keyboard_arrow_left</i>Back</a>
+</section>
+<div id="background">
+    <img id="background-image" src="/img/ambient.jpg" alt="background" onload="backgroundLoaded(this.id)"/>
+</div>

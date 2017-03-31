@@ -103,6 +103,7 @@ iframe {
                 .bezel {
                     position: absolute;
                     box-sizing: border-box;
+                    overflow: hidden;
                     top: 0px;
                     left: 0px;
                     right: 0px;
@@ -217,7 +218,7 @@ iframe {
             z-index: 9;
 
             .bezel-ipad {
-                padding: 8% 8% 0 9.3%;
+                padding: 7.7% 8.3% 0 9%;;
 
                 iframe {
                     width: 1024px;
@@ -235,7 +236,7 @@ iframe {
             z-index: 9;
 
             .bezel-iphone-six-plus {
-                padding: 23.5% 6.75% 0 6.75%;
+                padding: 23.5% 6.1% 0 6%;;
 
                 iframe {
                     width: 414px;
@@ -276,11 +277,63 @@ iframe {
 #devices, #devices.landscape {
     .wrapper.flex-wrapper {
 
+        .device {
+            max-width: 90%;
+        }
+
+        .device-ipad {
+            display: block;
+        }
+
         .device-imac {
             @include calc(width, '1.19 * (100vh - 64px - 70px - ' $table-height ')');
             left: 50%;
             @include transform(translateX(-50%));
         }
+
+        .device-macbook {
+            @include calc(width, '1.75 * (100vh - 64px - 70px - ' $table-height ')');
+            left: 50%;
+            @include transform(translateX(-50%));
+        }
+
+        .multi-wrapper {
+            max-width: 90%;
+            position: absolute;
+            bottom: 0px;
+            
+            .device {
+                max-width: 100%;
+            }
+        }
+
+        .multi-wrapper-ipad {
+            @include calc(width, '1.7 * (100vh - 64px - 70px - ' $table-height ')');
+            left: 50%;
+            @include transform(translateX(-50%));
+
+            .device-ipad.portrait {
+                width: 45%;
+                left: 0px;
+            }
+
+            .device-ipad.landscape {
+                width: 58%;
+                right: 0px;
+            }
+        }
+
+        .multi-wrapper-iphone {
+            @include calc(width, '0.49 * (100vh - 64px - 70px - ' $table-height ')');
+            left: 50%;
+            @include transform(translateX(-50%));
+            
+            .device-iphone.six-plus {
+                width: 100%;
+                left: 0px;
+            }
+        }
+
     }
 }
 
@@ -300,7 +353,7 @@ iframe {
     position: fixed;
     bottom: 0px;
     background-image: url(../img/background.png);
-    
+
     .btn {
         margin-left: 5vw;
         margin-top: 10px;
