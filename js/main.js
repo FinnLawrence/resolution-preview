@@ -2,6 +2,7 @@
 ---
 
 var exemptBlur = false;
+var defaultUrl = '{{ site.search-url }}';
 
 $(document).ready(function() {
     setAspect();
@@ -12,6 +13,10 @@ $(document).ready(function() {
     $('#searchbar').submit(function(event) {
         event.preventDefault();
         var url = $('#search').val();
+        
+        if (url === defaultUrl) {
+            return;
+        }
         
         if (! isValidURL(url)) {
             url = "http://" + url;
@@ -33,6 +38,7 @@ $(document).ready(function() {
     });
     
     $('#search').blur(function() {
+        
         if (! exemptBlur) {
             $('#searchbar').submit();
         }
