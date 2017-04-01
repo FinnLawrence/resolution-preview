@@ -303,7 +303,7 @@ iframe {
             max-width: 90%;
             position: absolute;
             bottom: 0px;
-            
+
             .device {
                 max-width: 100%;
             }
@@ -329,7 +329,7 @@ iframe {
             @include calc(width, '0.49 * (100vh - 64px - 70px - ' $table-height ')');
             left: 50%;
             @include transform(translateX(-50%));
-            
+
             .device-iphone.six-plus {
                 width: 100%;
                 left: 0px;
@@ -370,11 +370,11 @@ iframe {
     left: 0px;
     right: 0px;
     bottom: 0px;
-    
+
     .demo-wrapper {
         margin: 50px 5vw;
         max-width: 1280px;
-        
+
         h1 {
             color: orangered;
             text-transform: uppercase;
@@ -383,6 +383,14 @@ iframe {
             @media (min-width: 1280px) {
                 font-size: 64px;
             }
+        }
+    }
+}
+
+@media (min-width: 1420px) {
+    #demo {
+        .demo-wrapper {
+            margin: 50px auto;
         }
     }
 }
