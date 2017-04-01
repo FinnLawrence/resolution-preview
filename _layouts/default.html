@@ -17,6 +17,8 @@
     </head>
 
     <body>
+        {% if page.no-search-bar %}
+        {% else %}
         <header>
             <nav>
                 <div class="nav-wrapper">
@@ -30,6 +32,7 @@
                 </div>
             </nav>
         </header>
+        {% endif %}
         <main>
             {{ content }}
         </main>

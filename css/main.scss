@@ -64,6 +64,8 @@ nav {
 
 iframe {
     background-color: white;
+    opacity: 0;
+    @include transition(opacity 1s);
 }
 
 .btn-device {
@@ -357,5 +359,30 @@ iframe {
     .btn {
         margin-left: 5vw;
         margin-top: 10px;
+    }
+}
+
+#demo {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    
+    .demo-wrapper {
+        margin: 50px 5vw;
+        max-width: 1280px;
+        
+        h1 {
+            color: orangered;
+            text-transform: uppercase;
+            font-size: 5vw;
+            
+            @media (min-width: 1280px) {
+                font-size: 64px;
+            }
+        }
     }
 }

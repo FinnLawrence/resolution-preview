@@ -1,6 +1,8 @@
 ---
 ---
 
+var exemptBlur = false;
+
 $(document).ready(function() {
     setAspect();
     sizeIframes();
@@ -22,10 +24,18 @@ $(document).ready(function() {
             }
         }
         setParameters(url);
+        exemptBlur = true;
         $('#search').blur();
+        exemptBlur = false;
         $('iframe').each(function() {
             $(this).attr("src", url);
         });
+    });
+    
+    $('#search').blur(function() {
+        if (! exemptBlur) {
+            $('#searchbar').submit();
+        }
     });
     
     $('.btn-device').click(function() {
@@ -71,6 +81,7 @@ function sizeIframes() {
         
         var iframe = iframeWrapper.children('iframe');
         iframe.css('transform', 'scale(' + scaleFactor + ')');
+        iframe.css('opacity', '1');
     });
 }
 
