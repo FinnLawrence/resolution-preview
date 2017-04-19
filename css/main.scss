@@ -387,6 +387,28 @@ iframe {
     }
 }
 
+footer {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    
+    .footer-wrapper {
+        padding: 3px 20px;
+        
+        .footer-link {
+            color: orangered;
+            text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            @include transition(all 0.3s);
+        }
+        
+        .footer-link:hover {
+            color: white;
+            text-shadow: 2px 2px 1px orangered;
+        }
+    }
+}
+
 @media (min-width: 1420px) {
     #demo {
         .demo-wrapper {
