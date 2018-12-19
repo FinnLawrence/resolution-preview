@@ -1,8 +1,8 @@
 # Site settings
-title: 
-email: 
+title:
+email:
 description:
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
-search-url: 'http://checkmy.tech/demo/'
+search-url: 'https://mevo.co.nz'
