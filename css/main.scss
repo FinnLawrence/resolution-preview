@@ -42,7 +42,7 @@ $table-height: 76px;
 }
 
 nav {
-    background-color: orangered;
+    background-color: #00AFDD;
 
     #searchbar {
         width: 100%;
@@ -69,11 +69,11 @@ iframe {
 }
 
 .btn-device {
-    background-color: orangered;
+    background-color: #F7590D;
 }
 
 .btn-device:hover, .btn-device:active {
-    background-color: #ff5611;
+    background-color: #FF7327;
 }
 
 #devices {
@@ -98,6 +98,7 @@ iframe {
             float: left;
             position: absolute;
             display: inline-block;
+            @include transition(opacity 0.3s);
 
             .device-wrapper {
                 position: relative;
@@ -123,7 +124,7 @@ iframe {
                             overflow: hidden;
                         }
 
-                        iframe::-webkit-scrollbar {  
+                        iframe::-webkit-scrollbar {
                             display: none;
                         }
                     }
@@ -250,6 +251,14 @@ iframe {
     }
 }
 
+#devices.loading {
+  .wrapper {
+    .device {
+      opacity: 0;
+    }
+  }
+}
+
 #devices.landscape {
     .wrapper {
         @include calc(height, '100vh - 64px - ' $table-height);
@@ -345,7 +354,7 @@ iframe {
     z-index: -1;
     position: fixed;
     bottom: $table-height;
-    background-color: orangered;
+    background-color: #00AFDD;
 }
 
 #table {
@@ -379,7 +388,7 @@ iframe {
             color: orangered;
             text-transform: uppercase;
             font-size: 5vw;
-            
+
             @media (min-width: 1280px) {
                 font-size: 64px;
             }
@@ -391,17 +400,16 @@ footer {
     position: fixed;
     bottom: 0px;
     right: 0px;
-    
+
     .footer-wrapper {
         padding: 3px 20px;
-        
+
         .footer-link {
-            color: orangered;
-            text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.4);
+            color: white;
             cursor: pointer;
             @include transition(all 0.3s);
         }
-        
+
         .footer-link:hover {
             color: white;
             text-shadow: 2px 2px 1px orangered;

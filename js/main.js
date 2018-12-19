@@ -73,7 +73,7 @@ $(window).resize(function() {
 function setIframeSource(url) {
     // Need something here to check if the iFrames are going to get blocked and handle that nicely
     // TODO
-    
+
     // Set the src of all the iframes
     $('iframe').each(function() {
         $(this).attr("src", url);
@@ -90,6 +90,8 @@ function setAspect() {
     } else {
         $('#devices').removeClass("landscape");
     }
+
+    $('#devices').removeClass("loading");
 }
 
 function sizeIframes() {
@@ -125,11 +127,12 @@ function setParameters(pageURL) {
     var targetDomain = url('hostname', pageURL);
     var targetPath = url('path', pageURL);
 
+    var protocol = url('protocol', window.location.href);
     var hostname = url('hostname', window.location.href);
     var port = url('port', window.location.href);
     var path = url('path', window.location.href);
 
-    var newPageUrl = "http://" + hostname;
+    var newPageUrl = protocol + "://" + hostname;
 
     if(port) {
         newPageUrl += ":" + port;
